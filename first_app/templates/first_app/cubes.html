@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cubes</title>
+</head>
+<body>
+    {{cubed}}
+    {% for num,cubed in cubed.items %}
+    <h1>the cube of {{num}} is {{cubed}}</h1>
+    {% endfor %}
+    <a href='{% url "Isitnewyear" %}'>Click here to see if it's a new year</a>
+</body>
+</html>

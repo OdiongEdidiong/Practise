@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Best Team</title>
+</head>
+<body>
+    {% if team%}
+        <h2>{{team}} is a good team</h2>
+    {%else%}
+    <h2>Seems you don't like football</h2>
+    {%endif%}
+    <form action="{% url 'teams'%}" method="post">
+        {{teams.as_p}}
+        {%csrf_token%}
+        <button>Submit</button>
+    </form>
+</body>
+</html>

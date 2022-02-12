@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote here!!</title>
+    <style>
+        body{
+            background-color: rgb(117, 117, 253);
+            padding: 50px;
+        }
+        div{
+            background-color: blue;
+            max-width: 60%;
+            padding: 250px;
+            border-radius: 20px;
+            border: solid 2px;
+            transition: 0.8s;
+        }
+        div:hover{
+            box-shadow: 2px 1px 0px 2px black;
+        }
+    </style>
+
+<style>
+    a{
+        color:  white;
+    }
+</style>
+</head>
+<body>
+    <div>
+        {% if msg %}
+        {% if 'already' in msg %}
+            <style>
+                div{
+                    background-color:red;
+                }
+            </style>
+        {% endif %}
+        <h2>{{msg}}</h2>
+        {% endif %}
+        <form method="post" action='{% url "voter" %}'>
+            {%csrf_token%}
+            {{voteform}}
+            <button>Vote👍🏾</button>
+        </form>
+        <a href="{% url 'results' %}">Click here to view results</a>
+    </div>
+</body>
+</html>
